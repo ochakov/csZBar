@@ -142,18 +142,20 @@ implements SurfaceHolder.Callback {
             flashMode = params.optString("flash");
 
             // Initiate instance variables
-			try {
-				autoFocusHandler = new Handler();
-				scanner = new ImageScanner();
-				scanner.setConfig(0, Config.X_DENSITY, 3);
-				scanner.setConfig(0, Config.Y_DENSITY, 3);
-			}
-			catch (Exception e) {
-				die(e.getMessage());
-			}
-			catch (Error e) {
-				die(e.getMessage());
-			}
+            try {
+                autoFocusHandler = new Handler();
+                scanner = new ImageScanner();
+                scanner.setConfig(0, Config.X_DENSITY, 3);
+                scanner.setConfig(0, Config.Y_DENSITY, 3);
+            }
+            catch (Exception e) {
+                die(e.getMessage());
+                return;
+            }
+            catch (Error e) {
+                die(e.getMessage());
+                return;
+            }
 
             // Set the config for barcode formats
             for(ZBarcodeFormat format : getFormats()) {
