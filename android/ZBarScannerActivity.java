@@ -336,11 +336,12 @@ implements SurfaceHolder.Callback {
             rotation = 90;
             break;
         }
-        camera.setDisplayOrientation(rotation);
-        android.hardware.Camera.Parameters params = camera.getParameters();
-        tryStopPreview();
-        tryStartPreview();
-
+	if (camera != null) {
+            camera.setDisplayOrientation(rotation);
+            android.hardware.Camera.Parameters params = camera.getParameters();
+            tryStopPreview();
+            tryStartPreview();
+	}
     }
 
     public void toggleFlash(View view) {
