@@ -56,7 +56,7 @@ public class ZBar extends CordovaPlugin {
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent result)
     {
-        if(requestCode == SCAN_CODE) {
+        if(requestCode == SCAN_CODE && scanCallbackContext != null) {
             switch(resultCode) {
                 case Activity.RESULT_OK:
                     String barcodeValue = result.getStringExtra(ZBarScannerActivity.EXTRA_QRVALUE);
