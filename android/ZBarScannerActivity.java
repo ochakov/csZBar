@@ -470,24 +470,29 @@ implements SurfaceHolder.Callback {
         if(surfW == 0 || surfH == 0) return;
 
         // Resize SurfaceView to match camera preview ratio (avoid stretching).
-        Camera.Parameters params = camera.getParameters();
-        Camera.Size size = params.getPreviewSize();
-        float previewRatio = (float) size.height / size.width; // swap h and w as the preview is rotated 90 degrees
-        float surfaceRatio = (float) surfW / surfH;
+	try {
+		Camera.Parameters params = camera.getParameters();
+		Camera.Size size = params.getPreviewSize();
+		float previewRatio = (float) size.height / size.width; // swap h and w as the preview is rotated 90 degrees
+		float surfaceRatio = (float) surfW / surfH;
 
-        if(previewRatio > surfaceRatio) {
-            scannerSurface.setLayoutParams(new FrameLayout.LayoutParams(
-                surfW,
-                Math.round((float) surfW / previewRatio),
-                Gravity.CENTER
-            ));
-        } else if(previewRatio < surfaceRatio) {
-            scannerSurface.setLayoutParams(new FrameLayout.LayoutParams(
-                Math.round((float) surfH * previewRatio),
-                surfH,
-                Gravity.CENTER
-            ));
-        }
+		if(previewRatio > surfaceRatio) {
+		    scannerSurface.setLayoutParams(new FrameLayout.LayoutParams(
+			surfW,
+			Math.round((float) surfW / previewRatio),
+			Gravity.CENTER
+		    ));
+		} else if(previewRatio < surfaceRatio) {
+		    scannerSurface.setLayoutParams(new FrameLayout.LayoutParams(
+			Math.round((float) surfH * previewRatio),
+			surfH,
+			Gravity.CENTER
+		    ));
+		}
+	}
+	catch (Exception e) {
+		// Ignore
+	}
     }
 
     // Stop the camera preview safely.
