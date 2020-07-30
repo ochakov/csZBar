@@ -5,8 +5,7 @@
   "cordova": {
     "id": "cordova-plugin-cszbar",
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ]
   },
   "repository": {
