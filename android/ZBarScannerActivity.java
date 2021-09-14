@@ -345,8 +345,16 @@ implements SurfaceHolder.Callback {
             tryStartPreview();
 	}
     }
-
+    
     public void toggleFlash(View view) {
+    	try {
+            toggleFlashSafe(view);
+	} catch (Exception e) {
+	    // Ignore
+	}
+    }
+
+    public void toggleFlashSafe(View view) {
     	if (camera == null) {
 		return;
 	}
