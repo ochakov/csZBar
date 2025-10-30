@@ -24,7 +24,7 @@
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
-        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|density|screenLayout|uimode"
                 android:name="org.cloudsky.cordovaPlugins.ZBarScannerActivity"
                 android:screenOrientation="fullUser"
                 android:exported="false"
@@ -52,20 +52,18 @@
         <source-file src="android/ZBar.java" target-dir="src/org/cloudsky/cordovaPlugins" />
         <source-file src="android/ZBarScannerActivity.java" target-dir="src/org/cloudsky/cordovaPlugins" />
         <source-file src="android/libs/zbar.jar" target-dir="libs" />
-        <source-file src="android/libs/armeabi/libiconv.so" target-dir="libs/armeabi" />
-        <source-file src="android/libs/armeabi/libzbarjni.so" target-dir="libs/armeabi" />
         <source-file src="android/libs/armeabi-v7a/libiconv.so" target-dir="libs/armeabi-v7a" />
+        <source-file src="android/libs/armeabi-v7a/libcharset.so" target-dir="libs/armeabi-v7a" />
         <source-file src="android/libs/armeabi-v7a/libzbarjni.so" target-dir="libs/armeabi-v7a" />
         <source-file src="android/libs/arm64-v8a/libiconv.so" target-dir="libs/arm64-v8a" />
+        <source-file src="android/libs/arm64-v8a/libcharset.so" target-dir="libs/arm64-v8a" />
         <source-file src="android/libs/arm64-v8a/libzbarjni.so" target-dir="libs/arm64-v8a" />s
         <source-file src="android/libs/x86/libiconv.so" target-dir="libs/x86" />
+        <source-file src="android/libs/x86/libcharset.so" target-dir="libs/x86" />
         <source-file src="android/libs/x86/libzbarjni.so" target-dir="libs/x86" />
         <source-file src="android/libs/x86_64/libiconv.so" target-dir="libs/x86_64" />
+        <source-file src="android/libs/x86_64/libcharset.so" target-dir="libs/x86_64" />
         <source-file src="android/libs/x86_64/libzbarjni.so" target-dir="libs/x86_64" />
-        <source-file src="android/libs/mips/libiconv.so" target-dir="libs/mips" />
-        <source-file src="android/libs/mips/libzbarjni.so" target-dir="libs/mips" />
-        <source-file src="android/libs/mips64/libiconv.so" target-dir="libs/mips64" />
-        <source-file src="android/libs/mips64/libzbarjni.so" target-dir="libs/mips64" />
         <source-file src="android/res/drawable/camera_flash.png" target-dir="res/drawable"/>
         <source-file src="android/res/drawable/camera_flash.png" target-dir="res/drawable-hdpi"/>
         <source-file src="android/res/drawable/camera_flash.png" target-dir="res/drawable-ldpi"/>
