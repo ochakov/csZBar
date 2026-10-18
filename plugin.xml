@@ -39,7 +39,14 @@
             <uses-feature android:name="android.hardware.camera.front" android:required="false" />
             <uses-permission android:name="android.permission.CAMERA" />
         </config-file>
-        <config-file target="res/values/strings.xml" parent="/*">
+        <!-- cordova-android >= 12 generates res/values/cdv_strings.xml instead of strings.xml, and
+             plugman silently ignores a <config-file> whose target file does not exist. This target
+             hits app/src/main/res/values/cdv_strings.xml directly on cordova-android >= 12. On 7..11
+             the file does not exist and cordova-common's Android Studio fallback maps any target
+             ending in strings.xml to app/src/main/res/values/strings.xml, so the values land there.
+             (That fallback is also why a target of res/values/cdv_strings.xml can never work: it is
+             remapped to strings.xml.) -->
+        <config-file target="app/src/main/res/values/cdv_strings.xml" parent="/*">
             <string name="csZbarScannerTitle">Scan QR Code</string>
             <string name="csZbarScannerInstructions">Please point your camera at the QR code.</string>
             <color name="csZbarScannerTextColor">#ffffff</color>
